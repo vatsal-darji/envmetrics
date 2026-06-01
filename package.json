@@ -1,0 +1,30 @@
+{
+  "name": "envmetrics",
+  "version": "1.0.0",
+  "description": "A lightweight, cgroup-aware Node.js library that returns current resource usage as a fraction of actual usable limits.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "node --import tsx/esm --test test/unit/*.test.ts",
+    "test:integration": "docker run --rm --memory=256m --cpus=0.5 -v \"$(pwd)/src\":/app/src -v \"$(pwd)/test\":/app/test -v \"$(pwd)/package.json\":/app/package.json -v \"$(pwd)/tsconfig.json\":/app/tsconfig.json -w /app node:22 sh -c \"npm install --silent && npx tsx test/integration/run.ts\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vatsal-darji/envmetrics.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vatsal-darji/envmetrics/issues"
+  },
+  "homepage": "https://github.com/vatsal-darji/envmetrics#readme",
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "tsx": "^4.22.3",
+    "typescript": "^6.0.3"
+  }
+}
